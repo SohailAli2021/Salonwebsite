@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- foont awsome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+</head>
+<style>
+
+
+.main header .iconShopping{
+	cursor: pointer;
+	z-index: 1;
+	position: relative;
+	font-size: 1.8rem;
+}
+
+/*items*/
+
+/*cart box*/
+.cartBox{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 99999;
+	transition: 0.3s linear;
+	transform: scale(0);
+}
+.cartBox.active{
+	transform: scale(1);
+}
+.cartBox .cart{
+	position: relative;
+	height: 70%;
+	width: 80%;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.cartBox .cart i{
+	position: absolute;
+	right: 0;
+	top: 0;
+	background:#f00;
+	padding:10px 15px;
+	color: #fff;
+	cursor: pointer;
+}
+.cartBox .cart i:hover{
+	background: #ff0000a5;
+}
+.cartBox .cart h1{
+	position: relative;
+	margin-top: 2%;
+	font-size: 2.8rem;
+	color: #017bf5;
+}
+</style>
+<script>
+		
+  function Delete(e){
+    let items = [];
+    JSON.parse(localStorage.getItem('items')).map(data=>{
+      if(data.id != e.parentElement.parentElement.children[0].textContent){
+        
+        items.push(data);
+
+      }
+    });
+    localStorage.setItem('items',JSON.stringify(items));
+    window.location.reload();
+  };
+</script>
+<body>
+  <nav class="navbar navbar-expand-lg  bg-danger navbar-dark"  >
+    <div class="container-fluid" >
+      <div class="navbar-brand" href="#"><img src="sp.avif" style="height: 60px;"></div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item"m K>
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery1.html">Gallery</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categori
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="shop.html">Jwelery</a></li>
+              <li><a class="dropdown-item" href="nail.html">Nail&Art</a></li>
+              <li><a class="dropdown-item" href="hair.html">Hair&Skincare</a></li>
+              <li><a class="dropdown-item" href="makeup.html">Makeup</a></li>
+              <li><a class="dropdown-item" href="wed.html">Wedding kit</a></li>
+              
+            </ul>
+            
+           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shops.html">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="feedback.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">contact</a>
+          </li>
+          <div class="iconShopping">
+            <p>0</p>
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="main">
+		<header id="header" class="header">
+      <center>
+			<h1>Shopping Cart</h1>
+		</center>
+		</header><!-- /header -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 ">
+				
+					</div>
+			   
+	
+	
+				</div>
+			<div class="col-lg-10">
+				<div class="row work" id="#allproduct">
+					<div class="col-lg-3" data-type="five">
+						<div class="card h-100">
+							<img class="h-100" src="aert3.webp"/>
+							<div class="card-body">
+								<h5>Nail art</h5>
+								<p>$<span>42.50</span></p>
+								<a href="#" title="add to cart" class="attToCart btn btn-dark">Add to cart</a>
+							</div>
+						</div>
+					</div>
+          
+					<div class="col-lg-3">
+						<div class="card h-100">
+							<img class="h-100" src="c1.jpg"/>
+							<div class="card-body">
+								<h5>Garden Plant</h5>
+								<p>$<span>15.50</span></p>
+								<a href="#" title="add to cart" class="attToCart btn btn-dark">Add to cart</a>
+							</div>
+						</div>
+					</div>
+          <div class="col-lg-3">
+						<div class="card h-100">
+							<img class="h-100" src="hair2.jpeg"/>
+							<div class="card-body">
+								<h5>Garden Plant</h5>
+								<p>$<span>15.50</span></p>
+								<a href="#" title="add to cart" class="attToCart btn btn-dark">Add to cart</a>
+							</div>
+						</div>
+					</div>
+          
+					<div class="col-lg-3">
+						<div class="card h-100">
+							<img class="h-100" src="pic13.jpg"/>
+							<div class="itemInfo">
+								<h5>Indoor plat</h5>
+								<p>$<span>100.50</span></p>
+								<a href="#" title="add to cart" class="attToCart btn btn-dark">Add to cart</a>
+							</div>
+						</div>
+					</div>
+          
+					
+				</div>
+			</div>
+			</div>
+			
+		
+		</div>
+	
+	</div>
+	<div class="cartBox">
+		<div class="cart">
+			<i class="fa fa-close"></i>
+			<h1>Cart</h1>
+			<table class="table"></table>
+			<a class="btn btn-dark" href="ceck.html">CheckOut</a>
+		</div>
+	</div>
+
+
+	<!-- script -->
+	<script src="script.js"></script>
+
+  <footer class="footer-distributed" style="margin-top: 600px;">  
+
+    <div class="footer-left">
+
+      <IMG SRC="sp.avif" ALT="" WIDTH=100 HEIGHT=100>
+
+      <p class="footer-links">
+        <a href="index.html">Home</a> ·
+        <a href="about.html">About</a> ·
+        <a href="gallery1.html">Gallery</a> ·
+        <a href="shop.html">Shop</a> ·
+        <a href="feedback.html">Feedback</a> ·
+        <a href="contact.html">Contact</a>
+      </p>
+
+      <p class="footer-company-name">SP saloon &copy; 2018</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span></span>Tariq road</p>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+93103426057</p>
+      </div>
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:support@company.com">SPsaloon1298@gmail.com</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      <p class="footer-company-about">
+        <span>About this guy</span> Blah Blah..Blah blah bl;ah blah
+      </p>
+
+      <div class="footer-icons">
+
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+</body>
+</html>
